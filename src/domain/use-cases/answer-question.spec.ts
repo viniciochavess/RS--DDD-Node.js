@@ -1,19 +1,24 @@
 import { expect, test } from "vitest";
 import { AnswerQuestionUseCase } from "./answer-question";
+import { AnswersRepository } from "../repositories/answers-repository";
 
 const instructorId = "instructor-123";
 const questionId = "question-456";
 const content = "This is an answer to the question.";
 
-test("should create answer question", () => {
+const fakeAnswersRepository: AnswersRepository = {
+  create: async (answer) => {
+    return;
+  },
+};
 
-  const answerQuestionUseCase = new AnswerQuestionUseCase();
-  const answer = answerQuestionUseCase.execute({
+test("should create answer question", async () => {
+  const answerQuestionUseCase = new AnswerQuestionUseCase(fakeAnswersRepository);
+  const answer = await answerQuestionUseCase.execute({
     instructorId,
     questionId,
     content,
   });
-
 
   expect(answer).toBeDefined();
   expect(answer.content).toBe(content);

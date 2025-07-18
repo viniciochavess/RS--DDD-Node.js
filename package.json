@@ -1,6 +1,7 @@
 {
   "scripts": {
     "test": "vitest run",
+    "test:watch": "vitest",
     "dev": "tsx src/main.ts"
   },
   "devDependencies": {
