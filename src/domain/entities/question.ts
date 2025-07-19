@@ -1,3 +1,4 @@
+import { Slug } from "./value-objects/slug";
 interface QuestionProps {
   title: string;
   content: string;
