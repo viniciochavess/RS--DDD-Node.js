@@ -1,4 +1,5 @@
 import { Entity } from "../../core/entities/entity";
+import { Optional } from "../../core/types/optional";
 import { Slug } from "./value-objects/slug";
 import { UniqueEntityId } from "./value-objects/unique-entity-id";
 interface QuestionProps {
@@ -11,6 +12,19 @@ interface QuestionProps {
   updatedAt?: Date;
 }
 export class Question extends Entity<QuestionProps> {
+  static create(
+    props: Optional<QuestionProps, "createdAt">,
+    id?: UniqueEntityId
+  ): Question {
+    const question = new Question(
+      {
+        ...props,
+        createdAt: new Date(),
+      },
+      id
+    );
+    return question;
+  }
   get title(): string {
     return this.props.title;
   }

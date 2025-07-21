@@ -9,8 +9,8 @@ class Entity<T> {
   }
   protected props: T;
 
-  constructor(props: T, id?: string) {
-    this._id = new UniqueEntityId(id);
+  protected constructor(props: T, id?: UniqueEntityId) {
+    this._id = id ?? new UniqueEntityId();
     this.props = props;
   }
 }

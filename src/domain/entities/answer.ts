@@ -9,6 +9,20 @@ interface AnswerProps {
   updateAt?: Date;
 }
 export class Answer extends Entity<AnswerProps> {
+  static create(
+    props: Omit<AnswerProps, "createdAt">,
+    id?: UniqueEntityId
+  ): Answer {
+    const answer = new Answer(
+      {
+        ...props,
+        createdAt: new Date(),
+      },
+      id
+    );
+    return answer;
+  }
+
   get content(): string {
     return this.props.content;
   }
