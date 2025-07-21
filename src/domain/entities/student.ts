@@ -1,6 +1,5 @@
-import { randomUUID } from "node:crypto";
 import { Entity } from "../../core/entities/entity";
-import { S } from "vitest/dist/chunks/config.d.D2ROskhv";
+
 
 interface StudentProps {
   name: string;
