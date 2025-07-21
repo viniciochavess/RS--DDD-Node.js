@@ -22,7 +22,16 @@ export class Answer extends Entity<AnswerProps> {
     );
     return answer;
   }
+  private touch() {
+    this.props.updateAt = new Date();
+  }
 
+  get updateAt(): Date | undefined {
+    return this.props.updateAt;
+  }
+  get createdAt(): Date {
+    return this.props.createdAt;
+  }
   get content(): string {
     return this.props.content;
   }
@@ -31,5 +40,14 @@ export class Answer extends Entity<AnswerProps> {
   }
   get questionId(): UniqueEntityId {
     return this.props.questionId;
+  }
+
+  get excerpt(): string {
+    return this.props.content.substring(0, 120).trim().concat("...");
+  }
+
+  set content(content: string) {
+    this.props.content = content;
+    this.touch();
   }
 }
