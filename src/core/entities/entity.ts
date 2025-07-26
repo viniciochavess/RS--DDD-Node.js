@@ -1,5 +1,4 @@
-import { randomUUID } from "node:crypto";
-import { UniqueEntityId } from "../../domain/entities/value-objects/unique-entity-id";
+import { UniqueEntityId } from "@/domain/value-objects/unique-entity-id";
 
 class Entity<T> {
   private _id: UniqueEntityId;
