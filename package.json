@@ -2,10 +2,15 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "dev": "tsx src/main.ts"
+    "dev": "tsx src/main.ts",
+    "lint": " eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix"
   },
   "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
     "@types/node": "^24.0.13",
+    "eslint": "^8.57.1",
+    "eslint-plugin-vitest-globals": "^1.5.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
